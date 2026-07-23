@@ -1,6 +1,7 @@
 import express from "express";
 import clientsRoutes from "./src/routes/clientsRoutes.js";
 import usersRoutes from "./src/routes/usersRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 import { connectDB } from "./src/config/db.js";
 import cors from 'cors'
 
@@ -13,6 +14,7 @@ await connectDB();
 
 app.use("/clients", clientsRoutes)
 app.use("/users", usersRoutes)
+app.use("/auth", authRoutes)
 
 const PORT = 3000;
 app.listen(PORT, () => {
